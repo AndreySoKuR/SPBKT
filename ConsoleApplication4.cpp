@@ -49,24 +49,7 @@ List<T>::List()
 template <class T>
 List<T>::List(const List<T>& cpy)
 {
-    //   counts = cpy.counts;
-
-    //   if ( !cpy.empty() )
-    //   {
-    //      Node *prevPtr = 0;
-    //      Node *vPtr = 0;
-    //      Node *curNodePtr = cpy.firstPtr;
-    //      firstPtr = new Node( cpy.firstPtr->data );
-    //      while ( curNodePtr->next != 0)
-    //      {
-    //         curNodePtr = curNodePtr->next;
-    //         prevPtr = vPtr;
-    //         vPtr = new Node( curNodePtr->data );
-    //         prevPtr->next = vPtr;
-    //      }
-
-    //      vPtr->next = 0;
-    //   }
+    
     Node* curNode = cpy.firstPtr;
     while (curNode != 0)
     {
@@ -80,16 +63,7 @@ List<T>::List(const List<T>& cpy)
 template <class T>
 List<T>::~List()
 {
-    //   if ( !this->empty() )
-    //   {
-    //      Node *curNodePtr = firstPtr;
-    //      Node *nextNodePtr = 0;
-    //      do
-    //      {
-    //         nextNodePtr = curNodePtr->next;
-    //         delete curNodePtr;
-    //      } while ( nextNodePtr != 0 );
-    //   }
+    
     while (!this->empty())
         this->pop_front();
 }
