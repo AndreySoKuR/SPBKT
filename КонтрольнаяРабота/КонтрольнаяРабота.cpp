@@ -14,7 +14,7 @@ int main()
     int size = 0;
     char cBuffer[1026] = { 0 };
     string text;
-    fstream file("passwd/test.txt");
+    fstream file("passwd/file.txt");
 
     setlocale(LC_ALL, "Russian");
 
