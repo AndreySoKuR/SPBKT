@@ -1,0 +1,2 @@
+C:\Users\453\source\repos\Lab24\Debug\Lab24.exe
+C:\Users\453\source\repos\Lab24\Debug\Lab24.pdb
