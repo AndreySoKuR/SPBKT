@@ -1,11 +1,17 @@
 ﻿  MyForm.cpp
-C:\Users\453\source\repos\Project6\MyForm1.h(248,21): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\453\source\repos\Project6\MyForm1.h(258,21): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\453\source\repos\Project6\MyForm1.h(245,3): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\453\source\repos\Project6\MyForm1.h(244,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\453\source\repos\Project6\MyForm1.h(252,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\453\source\repos\Project6\MyForm1.h(241,4): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\453\source\repos\Project6\MyForm1.h(286,37): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\453\source\repos\Project6\MyForm1.h(294,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\453\source\repos\Project6\MyForm1.h(283,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   MyForm1.cpp
-C:\Users\453\source\repos\Project6\MyForm1.h(248,21): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\453\source\repos\Project6\MyForm1.h(258,21): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\453\source\repos\Project6\MyForm1.h(245,3): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\453\source\repos\Project6\MyForm1.h(244,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\453\source\repos\Project6\MyForm1.h(252,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\453\source\repos\Project6\MyForm1.h(241,4): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\453\source\repos\Project6\MyForm1.h(286,37): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\453\source\repos\Project6\MyForm1.h(294,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\453\source\repos\Project6\MyForm1.h(283,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   Создание кода...
   MyForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
   Project6.vcxproj -> C:\Users\453\source\repos\Project6\Debug\Project6.exe

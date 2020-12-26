@@ -3,12 +3,14 @@
 #include <iostream>
 #include <locale.h>
 #include <stdio.h>
+#include <mutex>
 #include <fstream>
 #include <vector>
 #include <string>
 #include <sstream>
 #include <algorithm>
 #include <regex>
+#include <chrono>
 #include <msclr/marshal_cppstd.h>
 
 namespace Project6 {
@@ -20,6 +22,7 @@ namespace Project6 {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::IO;
+	using namespace System::Threading;
 	using namespace std;
 
 	/// <summary>
@@ -57,8 +60,8 @@ namespace Project6 {
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Label^ label7;
 
-
-
+	private: Thread^ myThr1;
+	private: Thread^ myThr2;
 
 
 
@@ -209,6 +212,91 @@ namespace Project6 {
 				line.push_back(token);
 			return line;
 		}
+
+		public: void thr1() {
+			std::string str;
+			std::fstream f;
+			f.open("text.txt", std::fstream::in | std::fstream::out);
+			while (f) {
+
+				std::getline(f, str);
+				// Обработка строки str
+			}
+			String^ s = gcnew String(str.c_str()); // конвертируем
+			label3->Text = "Приветствуем  " + s; // используем в новом формате =)
+
+			std::string arr;
+
+			std::ifstream g;
+			g.open("g.txt");
+			while (!g.eof()) {
+				g >> arr;
+			}
+
+			String^ j = gcnew String(arr.c_str()); // конвертируем
+			label6->Text = j; // используем в новом формате =)
+			arr = regex_replace(arr, regex("8"), "*");
+			int k = 1;
+			char mass[255];
+			strcpy(mass, arr.c_str());
+
+			//strcpy(mass, arr.c_str());
+			for (int i = 0; i < (strlen(mass)/2 ); i++) {
+				if (mass[i] == '.') {
+					mass[i - k] = '*';
+					k++;
+				}
+			}
+			string strr = string(mass);
+			std::vector<std::string> line = Separate(strr);
+			for (int i = 0; i < line.size(); i++) {
+				String^ sp = gcnew String(line[i].c_str()); // конвертируем
+				label7->Text = label7->Text + "Вектор №" + (i + 1) + " Содержимое = " + sp + "\n";
+			}
+		}
+
+public: void thr2() {
+	std::string str;
+	std::fstream f;
+	f.open("text.txt", std::fstream::in | std::fstream::out);
+	while (f) {
+
+		std::getline(f, str);
+		// Обработка строки str
+	}
+	String^ s = gcnew String(str.c_str()); // конвертируем
+	label3->Text = "Приветствуем  " + s; // используем в новом формате =)
+
+	std::string arr;
+
+	std::ifstream g;
+	g.open("g.txt");
+	while (!g.eof()) {
+		g >> arr;
+	}
+
+	String^ j = gcnew String(arr.c_str()); // конвертируем
+	label6->Text = j; // используем в новом формате =)
+	arr = regex_replace(arr, regex("8"), "*");
+	int k = 1;
+	char mass[255];
+	strcpy(mass, arr.c_str());
+
+	//strcpy(mass, arr.c_str());
+	for (int i = (strlen(mass) / 2); i < (strlen(mass) ); i++) {
+		if (mass[i] == '.') {
+			mass[i - k] = '*';
+			k++;
+		}
+	}
+	string strr = string(mass);
+	std::vector<std::string> line = Separate(strr);
+	for (int i = 0; i < line.size(); i++) {
+		String^ sp = gcnew String(line[i].c_str()); // конвертируем
+		label7->Text = label7->Text + "Вектор №" + (i + 1) + " Содержимое = " + sp + "\n";
+	}
+}
+
 	private: System::Void MyForm1_Load(System::Object^ sender, System::EventArgs^ e) {	
 		
 	}
@@ -216,49 +304,18 @@ namespace Project6 {
 		label4->Text = "Текущее время: " + System::DateTime::Now.ToString();
 		label5->Visible = true;
 		
-		std::string str;
-		std::fstream f;
-		f.open("C:\\text.txt", std::fstream::in | std::fstream::out);
-		while (f) {
-
-			std::getline(f, str);
-			// Обработка строки str
-		}
-		String^ s = gcnew String(str.c_str()); // конвертируем
-		label3->Text = "Приветствуем  " + s; // используем в новом формате =)
 		
-		std::string arr;
 		
-		std::ifstream g;
-		g.open("C:\\g.txt");
-		while (!g.eof()) {
-			g >> arr;
-		}
 		
-		String^ j = gcnew String(arr.c_str()); // конвертируем
-		label6->Text = j; // используем в новом формате =)
-		arr = regex_replace(arr, regex("8"), "*");
-		
-		int k = 1;
-		
-		char mass[255];
-		strcpy(mass, arr.c_str());
-
-		//strcpy(mass, arr.c_str());
-		for (int i = 0; i < strlen(mass); i++) {
-			if (mass[i] == '.') {
-				mass[i - k] = '*';
-				k++;
-			}
-		}
-		string strr = string(mass);
+		myThr1 = gcnew Thread(gcnew ThreadStart(this, &MyForm1::thr1));
+		myThr2 = gcnew Thread(gcnew ThreadStart(this, &MyForm1::thr2));
+		myThr1->Start();
+		myThr1->Join();
+		myThr2->Start();
+		myThr2->Join();
 		
 
-		std::vector<std::string> line = Separate(strr);
-		for (int i = 0; i < line.size(); i++) {
-			String^ sp = gcnew String(line[i].c_str()); // конвертируем
-			label7->Text = label7->Text + "Вектор №" + (i+1) + " Содержимое = " + sp + "\n";
-		}
+		
 
 	}
 };

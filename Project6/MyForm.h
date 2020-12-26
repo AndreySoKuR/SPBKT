@@ -191,7 +191,7 @@ private: System::Void textBox1_TextChanged(System::Object^ sender, System::Event
 	System::String^ xyz = textBox1->Text;
 	std::string converted_xyz = msclr::interop::marshal_as< std::string >(xyz);
 	std::fstream f;
-	f.open("C:\\text.txt", std::fstream::trunc | std::fstream::out);
+	f.open("text.txt", std::fstream::trunc | std::fstream::out);
 	
 	f << converted_xyz;
 	
